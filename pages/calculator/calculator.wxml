@@ -1,9 +1,9 @@
 <view class="container">
 <view class="container" style="flex:1;">
 
-  <view class="item_container">
+  <view class="item_container" style="border-top: 1px solid #d8d8d8;">
     <text style="flex:1;" class="item_title">实投金额</text>
-    <input class="input" placeholder="默认10000"  />
+    <input id="principal" class="input" type="digit" placeholder="默认10000" bindinput="inputChange"  auto-focus/>
     <text class="unit_text">元</text>
   </view>
   <view class="item_container">
@@ -22,7 +22,7 @@
       <text style="color:#808080; margin-left:10pt;">利率</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
+      <input class="input" id="interest" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
     </view>
     <text style="color:#004986;">%</text>
     <checkbox class="switch" bindchange="switch2Change" checked="true"  />
@@ -32,7 +32,7 @@
       <text style="color:#808080; margin-left:10pt;">期限</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="默认 1年"  />
+      <input class="input" id="timeLimit" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="默认 1年"  />
     </view>
     <text style="color:#004986;">%</text>
     <checkbox class="switch" bindchange="switch2Change" checked="true"  />
@@ -50,17 +50,17 @@
   </view>
   <view class="item_container" style="margin-top:10pt;">
     <view >
-      <text style="color:#808080; margin-left:10pt;margin-right:20rpx;">投资奖励</text>
+      <text style="color:#808080; font-size:35rpx; margin-left:10pt;margin-right:20rpx;">投资奖励</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
+      <input class="input" id="investment" bindinput="inputChange" type="digit" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
              placeholder="选填"  />
     </view>
     <view >
-      <text style="color:#808080; margin-left:10pt;margin-right:20rpx;">抵扣奖励</text>
+      <text style="color:#808080;  font-size:35rpx; margin-left:10pt;margin-right:20rpx;">抵扣奖励</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
+      <input class="input" id="deduction" bindinput="inputChange" type="digit" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
              placeholder="选填"  />
     </view>
   </view>
@@ -69,7 +69,7 @@
       <text style="color:#808080; margin-left:10pt;">投资奖励</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
+      <input class="input" id="investmentDeduction" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
     </view>
     <text style="color:#004986;margin-right:20rpx;">%</text>
   </view>
@@ -78,7 +78,7 @@
       <text style="color:#808080; margin-left:10pt;">管理费</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
+      <input class="input" id="administrativeFee" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
     </view>
     <text style="color:#004986; margin-right:20rpx;">%</text>
   </view>
@@ -86,8 +86,8 @@
 </view >
 <view class="bottom_container" >
   <view class="item_container"  style="background:transparent;  border:0px;"  >
-    <button type="default" style="width:40%;" >重置</button>
-    <button type="primary" style="width:60%; margin-left:20rpx;">确定</button>
+    <button id="reset" type="default" style="width:40%;" bindtap="onClick" >重置</button>
+    <button id="confirm" type="primary" style="width:60%; margin-left:20rpx;" bindtap="onClick">确定</button>
   </view>
   </view>
 </view>
