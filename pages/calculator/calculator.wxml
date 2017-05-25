@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="item_container">
+    <text style="flex:1;" class="item_title">实投金额</text>
+    <input  class="input" placeholder="默认10000"  />
+    <text class="unit_text">元</text>
+  </view>
+  <view class="item_container">
+    <view style="flex:1;" style="color:#808080; margin-left:10pt;">起息时间</view>
+    <view class="time_picker" style="margin-left:20pt; flex:1;">
+      <picker mode="date" value="{{date}}" start="2017-05-26" end="2018-09-01" bindchange="bindDateChange">
+        <view class="picker">{{date}}</view>
+      </picker>
+    </view>
+    <view style="margin-right:10pt;">
+      <image mode="aspectFit" class="arrow" src="../../image/arrow.png"  />
+    </view>
+  </view>
+  <view class="item_container" style="margin-top:10pt">
+    <view style="flex:1;" >
+      <text style="color:#808080; margin-left:10pt;">利率</text>
+    </view>
+    <view style="flex-direction:row; ">
+      <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"   placeholder="例如 8.0"/>
+    </view>
+    <text style="color:#004986;">%</text>
+    
+
+  </view>
+</view>
