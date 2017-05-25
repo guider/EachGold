@@ -1,7 +1,6 @@
 <view class="container">
-  
-  
-  
+<view class="container" style="flex:1;">
+
   <view class="item_container">
     <text style="flex:1;" class="item_title">实投金额</text>
     <input class="input" placeholder="默认10000"  />
@@ -18,10 +17,6 @@
       <image mode="aspectFit" class="arrow" src="../../image/arrow.png"  />
     </view>
   </view>
-
-
-
-
   <view class="item_container" style="margin-top:10pt">
     <view style="flex:1;">
       <text style="color:#808080; margin-left:10pt;">利率</text>
@@ -30,10 +25,9 @@
       <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="例如 8.0"  />
     </view>
     <text style="color:#004986;">%</text>
-    <checkbox class="switch"  bindchange="switch2Change" checked="true" />  
+    <checkbox class="switch" bindchange="switch2Change" checked="true"  />
   </view>
-
-    <view class="item_container" >
+  <view class="item_container">
     <view style="flex:1;">
       <text style="color:#808080; margin-left:10pt;">期限</text>
     </view>
@@ -41,12 +35,9 @@
       <input class="input" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="默认 1年"  />
     </view>
     <text style="color:#004986;">%</text>
-    <checkbox class="switch"  bindchange="switch2Change" checked="true" />
+    <checkbox class="switch" bindchange="switch2Change" checked="true"  />
   </view>
- 
-
-
-   <view class="item_container">
+  <view class="item_container">
     <view style="color:#808080; margin-left:10pt; flex:1; ">还款方式</view>
     <view class="time_picker" style="margin-left:20pt;margin-right:40rpx">
       <picker range="{{array}}" start="2017-05-26" end="2018-09-01" bindchange="bindDateChange">
@@ -57,27 +48,23 @@
       <image mode="aspectFit" class="arrow" src="../../image/arrow.png"  />
     </view>
   </view>
-
-
-
   <view class="item_container" style="margin-top:10pt;">
     <view >
       <text style="color:#808080; margin-left:10pt;margin-right:20rpx;">投资奖励</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="选填"  />
+      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
+             placeholder="选填"  />
     </view>
     <view >
       <text style="color:#808080; margin-left:10pt;margin-right:20rpx;">抵扣奖励</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="选填"  />
+      <input class="input" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
+             placeholder="选填"  />
     </view>
   </view>
-
-
-
-    <view class="item_container" >
+  <view class="item_container">
     <view style="flex:1;">
       <text style="color:#808080; margin-left:10pt;">投资奖励</text>
     </view>
@@ -86,9 +73,7 @@
     </view>
     <text style="color:#004986;margin-right:20rpx;">%</text>
   </view>
-
-
-  <view class="item_container" >
+  <view class="item_container">
     <view style="flex:1;">
       <text style="color:#808080; margin-left:10pt;">管理费</text>
     </view>
@@ -98,6 +83,11 @@
     <text style="color:#004986; margin-right:20rpx;">%</text>
   </view>
 
-
-
+</view >
+<view class="bottom_container" >
+  <view class="item_container"  style="background:transparent;  border:0px;"  >
+    <button type="default" style="width:40%;" >重置</button>
+    <button type="primary" style="width:60%; margin-left:20rpx;">确定</button>
+  </view>
+  </view>
 </view>
