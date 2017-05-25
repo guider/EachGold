@@ -2,6 +2,7 @@ Page({
   data:{
     text:"Page calculator",
     date:'2017-5-21',
+    mode:'一次性还本息',
      array: ['Fair - 15%', 'Good - 18%', 'Outstanding - 20%', 'Perfect - 25%'],
   },
   onLoad:function(options){

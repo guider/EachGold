@@ -31,6 +31,7 @@
   align-self: center;
   margin-left: 30pt;
   margin-right: 10pt;
+  padding-left: 15rpx;
   align-self: center;
   padding-bottom: 2pt;
   border-bottom: 1px solid #d8d8d8;
@@ -62,4 +63,25 @@
 
 .time_picker{
    background: white;
+}
+
+.wx-checkbox-input{
+    display: none;
+}
+
+.switch{
+  width: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height:40rpx;
+  background-image: url("http://cdn-img.easyicon.net/png/11682/1168268.gif");
+
+}
+.switch[checked]{
+  width: 40rpx;
+  height:40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToz-9yySDAmxi2dg9ILl-dDnOthlO_XM1gF4qOJUPuOCNmdmhW");
+
 }
