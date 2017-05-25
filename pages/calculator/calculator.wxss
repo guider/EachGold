@@ -73,22 +73,39 @@ page{
 }
 
 .switch{
-  width: 40rpx;
+  height:48rpx;
+  width: 120rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  height:40rpx;
-  background-image: url("http://cdn-img.easyicon.net/png/11682/1168268.gif");
+  background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571163728749.png");
 
 }
 .switch[checked]{
-  width: 40rpx;
-  height:40rpx;
+  height:48rpx;
+  width: 120rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToz-9yySDAmxi2dg9ILl-dDnOthlO_XM1gF4qOJUPuOCNmdmhW");
+  background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571167092431.png");
 
 }
 
+.switch_month{
+  height:48rpx;
+  width: 120rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571175631818.png");
+
+}
+.switch_month[checked]{
+  
+  height:48rpx;
+  width: 120rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571169986512.png");
+
+}
 .bottom_container{
     position: fixed;
     bottom: 0;
