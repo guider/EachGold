@@ -50,7 +50,7 @@
   </view>
   <view class="item_container" style="margin-top:10pt;">
     <view >
-      <text style="color:#808080; font-size:35rpx; margin-left:10pt;margin-right:20rpx;">投资奖励</text>
+      <text style="color:#808080; font-size:35rpx; margin-left:10pt;margin-right:20rpx;">返现奖励</text>
     </view>
     <view style="flex-direction:row; ">
       <input class="input" id="investment" value="{{investment}}" bindinput="inputChange" type="digit" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8"
@@ -66,7 +66,7 @@
   </view>
   <view class="item_container">
     <view style="flex:1;">
-      <text style="color:#808080; margin-left:10pt;">投标奖励</text>
+      <text style="color:#808080; margin-left:10pt;">投资奖励</text>
     </view>
     <view style="flex-direction:row; ">
       <input class="input" id="investmentDeduction"  value="{{investmentDeduction}}" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="选填"  />

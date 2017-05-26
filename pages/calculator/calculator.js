@@ -35,8 +35,8 @@ Page({
       //到期时间
       date: '',
       //总收益
-      totalEarning:'',
-      mode:0,
+      totalEarning: '',
+      mode: 0,
 
     }
   },
@@ -61,21 +61,14 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log(this.data);
     this.data[e.target.id] = e.detail.value;
-    console.log(this.data);
     this.setData(this.data);
 
-    console.log(this.data);
 
   },
 
   inputChange: function (e) {
-
-    console.log(e.target.id);
-    console.log(e.detail.value);
     this.data[e.target.id] = e.detail.value;
-    console.log(this.data);
   },
   switch2Change: function (e) {
     this.data[e.target.id] = !this.data[e.target.id];
@@ -101,13 +94,6 @@ Page({
       });
     } else {
 
-
-
-
-
-
-
-
       if (!this.data.principal || !this.data.interest || !this.data.timeLimit) {
         wx.showToast({
           title: '信息填写不完整',
@@ -124,77 +110,75 @@ Page({
         this.data.result.date = this.data.date;
 
         //奖励
-        this.data.result.investment =( Number.parseFloat(this.data.investment) ? Number.parseFloat(this.data.investment) : 0)
+        this.data.result.investment = (Number.parseFloat(this.data.investment) ? Number.parseFloat(this.data.investment) : 0)
           + (Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0)
-            + (Number.parseFloat(this.data.investmentDeduction) ? Number.parseFloat(this.data.investmentDeduction) : 0);
-          
+          + (Number.parseFloat(this.data.investmentDeduction) ? Number.parseFloat(this.data.investmentDeduction) : 0);
+
         //利息  
         this.data.result.interest = this.getInterest();
 
         // 年化率 
-        this.data.result.year_interest =( this.getYearInterest()*100).toFixed(2);
-
-        console.log(this.data.result);
-
-        this.data.result.totalEarning =(Number.parseFloat( this.data.result.investment )
-            + Number.parseFloat(this.data.result.interest)).toFixed(2);
+        this.data.result.year_interest = (this.getYearInterest() * 100).toFixed(2);
 
 
+        this.data.result.totalEarning = (Number.parseFloat(this.data.result.investment)
+          + Number.parseFloat(this.data.result.interest)).toFixed(2);
 
-        var result =""; 
-        for (var key in this.data.result){
-            result  = result+key+'='+this.data.result[key]+'&';
+        var result = "";
+        for (var key in this.data.result) {
+          result = result + key + '=' + this.data.result[key] + '&';
         }
-        
-
         wx.navigateTo({
-          url: '../resultlist/resultlist?'+result,
+          url: '../resultlist/resultlist?' + result,
         });
-
-
       }
-
-
-
-
     }
   },
 
   getInterest: function () {
-    // 总投资天数
-    var intervalDays = this.getIntervalDays();
-    // 日利率
-    var dayPrincipal = 0.01* Number.parseFloat(this.data.interest)*1.0 / (this.data.year?365:30.4166666667)*1.0;
-    console.log(intervalDays);
-    console.log(dayPrincipal);
- 
-    var realInterest = (Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01*Number.parseFloat(this.data.administrativeFee)):1.0)
-    var totalMoney =   this.data.result.principal  +( Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0);
 
-    return (intervalDays * dayPrincipal * totalMoney* realInterest).toFixed(2);
+
+    if (this.data.mode == 2) {
+      // 等额本息方式
+      var dayPrincipal = 0.01 * (Number.parseFloat(this.data.interest) * 1.0 / ((this.data.year ? 365 : 30.4166666667) * 1.0));
+      var monthPricipal = 30.4166666667 * dayPrincipal;
+
+      var tmpInterest =[ (this.data.principal * monthPricipal) * Math.pow((1 + monthPricipal), Number.parseFloat(this.data.timeLimit)) ]
+          /[ Math.pow((1 + monthPricipal), Number.parseFloat(this.data.timeLimit))-1];
+
+     return tmpInterest.toFixed(2);
+
+    } else {
+
+      // 总投资天数
+      var intervalDays = this.getIntervalDays();
+      // 日利率
+      var dayPrincipal = 0.01 * Number.parseFloat(this.data.interest) * 1.0 / (this.data.year ? 365 : 30.4166666667) * 1.0;
+
+      var realInterest = (Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01 * Number.parseFloat(this.data.administrativeFee)) : 1.0)
+      var totalMoney = this.data.result.principal + (Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0);
+
+      return (intervalDays * dayPrincipal * totalMoney * realInterest).toFixed(2);
+    }
   },
 
   getYearInterest: function () {
     // 总奖励
     var investment = this.data.result.investment;
-    console.log(' ---->> invertment: '+investment);
     // 总利息
-    var interest = this.getInterest() ;
-    console.log(' ---->> interest: ' + interest);
-   // 真实本金   
-    var realPrincipal= (this.data.result.principal);
-    console.log( ' real '+investment + '   '+interest);
+    var interest = this.getInterest();
+    // 真实本金   
+    var realPrincipal = (this.data.result.principal);
 
-    return ((Number.parseFloat(investment) + Number.parseFloat(interest)) * 365 / this.getIntervalDays())/realPrincipal;
+    return ((Number.parseFloat(investment) + Number.parseFloat(interest)) * 365 / this.getIntervalDays()) / realPrincipal;
   },
 
 
 
 
 
-
-  getIntervalDays :function(){
-   return Number.parseFloat(this.data.timeLimit) ? (Number.parseFloat(this.data.timeLimit) * (this.data.month * 29.416666667 + 1)) : 365;
+  getIntervalDays: function () {
+    return Number.parseFloat(this.data.timeLimit) ? (Number.parseFloat(this.data.timeLimit) * (this.data.month * 29.416666667 + 1)) : 365;
   },
 
   trim: function (str) {

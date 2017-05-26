@@ -54,19 +54,12 @@ Page({
     }
 
     }else{
-      var count =this.data.timeLimit;
-      for (var i = 0; i < count; i++) {
-        this.data.list[i] = {
-          principal: (this.data.principal / count + ((i == count) ? this.data.principal % count : 0)).toFixed(2),
-          interest: (this.data.interest / count + ((i == count) ? this.data.interest % count : 0)).toFixed(2),
-          //  date: (i == 0) ? this.data.date : (this.getNextDate(maxDay, this.data.list[i - 1].date)),
-        }
 
 
 
 
+      return;
 
-    }
 
 
     }
