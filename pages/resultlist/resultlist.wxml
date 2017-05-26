@@ -1,0 +1,29 @@
+<!--resultlist.wxml-->
+<view class="container">
+  <view class="item_container">
+    <view  class="item_title" style="margin-left:20rpx;  padding:15rpx;">
+      <text >本金:{{principal}}</text>
+    </view>
+    <view  class="item_title" style="margin-right: 20rpx;padding:15rpx;flex:1.3;">
+      <text>利息:{{interest}}</text>
+    </view>
+  </view>
+
+  <view class="item_container">
+    <view  class="item_title" style="margin-left:20rpx;  padding:15rpx;">
+      <text >预期收益:{{totalEarning}}</text>
+    </view>
+    <view  class="item_title" style="margin-right: 20rpx;padding:15rpx;flex:1.3;">
+      <text>年化:{{year_interest}}</text>
+    </view>
+  </view>
+  <view class="item_container">
+    <view  class="item_title" style="margin-left:20rpx;  padding:15rpx; ">
+      <text >期数:{{timeLimit}}</text>
+    </view>
+    <view  class="item_title" style="margin-right: 20rpx;padding:15rpx; flex:1.3;">
+      <text>到期时间:{{date}}</text>
+    </view>
+  </view>
+
+</view>

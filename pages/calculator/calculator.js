@@ -11,7 +11,7 @@ Page({
     year: true,
     month: true,
     mode: 0,
-    array: ['一次性还本息', '满标付息到期还本', '等额本息'],
+    array: ['一次性还本息', '按月付息到期还本', '等额本息'],
     //投资奖励
     investment: '',
     //抵扣奖励
@@ -158,7 +158,7 @@ Page({
     // 总投资天数
     var intervalDays = this.getIntervalDays();
     // 日利率
-    var dayPrincipal = 0.01* Number.parseFloat(this.data.interest) / (this.data.year?365:30);
+    var dayPrincipal = 0.01* Number.parseFloat(this.data.interest)*1.0 / (this.data.year?365:30.4166666667)*1.0;
     console.log(intervalDays);
     console.log(dayPrincipal);
  
@@ -180,7 +180,7 @@ Page({
   },
 
   getIntervalDays :function(){
-   return Number.parseFloat(this.data.timeLimit) ? (Number.parseFloat(this.data.timeLimit) * (this.data.month * 29 + 1)) : 365;
+   return Number.parseFloat(this.data.timeLimit) ? (Number.parseFloat(this.data.timeLimit) * (this.data.month * 29.416666667 + 1)) : 365;
   },
 
   trim: function (str) {

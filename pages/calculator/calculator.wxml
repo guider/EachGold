@@ -3,7 +3,7 @@
 
   <view class="item_container" style="border-top: 1px solid #d8d8d8;">
     <text style="flex:1;" class="item_title">实投金额</text>
-    <input id="principal" class="input" type="digit" placeholder="默认10000" bindinput="inputChange" value="{{principal}}"  auto-focus/>
+    <input id="principal" class="input" type="digit" placeholder="默认10000" style="padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" bindinput="inputChange" value="{{principal}}"  auto-focus/>
     <text class="unit_text">元</text>
   </view>
   <view class="item_container">
@@ -32,7 +32,7 @@
       <text style="color:#808080; margin-left:10pt;">期限</text>
     </view>
     <view style="flex-direction:row; ">
-      <input class="input" id="timeLimit" value="{{timeLimit}}" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="默认 1年"  />
+      <input class="input" id="timeLimit" value="{{timeLimit}}" bindinput="inputChange" type="digit" style="width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="默认 1"  />
     </view>
     <text style="margin-right:30rpx;"> </text>
     <checkbox class="switch_month" id="month"  bindtap="switch2Change" checked="{{month}}"  />
