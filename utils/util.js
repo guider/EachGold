@@ -30,7 +30,21 @@ function formatTime2(date) {
   return [year, month, day].map(formatNumber).join('-');
 }
 
+function compareDate(start, intervalDays) {
+  if (start == null || start.length == 0 || intervalDays == null || intervalDays.length == 0) {
+    return 0;
+  }
+  var arr = start.split("-");
+  var starttime = new Date(arr[0], parseInt(arr[1] - 1), arr[2]);
+  var resultTimes = starttime.getTime() + intervalDays * 86400000;
+
+  var resultDate=  new Date(resultTimes);
+
+  return formatTime2(resultDate);
+} 
+
 module.exports = {
   formatTime: formatTime,
-  formatTime2:formatTime2
+  formatTime2:formatTime2,
+  compareDate: compareDate,
 }
