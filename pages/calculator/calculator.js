@@ -72,7 +72,13 @@ Page({
   },
   switch2Change: function (e) {
     this.data[e.target.id] = !this.data[e.target.id];
+    if(!this.data[e.target.id]){
+       this.data.mode=0;
+    }
+
     this.setData(this.data);
+    
+
   },
   onClick: function (e) {
 

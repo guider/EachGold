@@ -40,7 +40,7 @@
   <view class="item_container">
     <view style="color:#808080; margin-left:10pt; flex:1; ">还款方式</view>
     <view class="time_picker" style="margin-left:20pt;margin-right:40rpx">
-      <picker range="{{array}}" start="2017-05-26" end="2030-01-01" id='mode' disabled="{{!year}}" bindchange="bindDateChange">
+      <picker range="{{array}}" start="2017-05-26" end="2030-01-01" id='mode' disabled="{{!year||!month}}" bindchange="bindDateChange">
         <view class="picker">{{array[mode]}}</view>
       </picker>
     </view>

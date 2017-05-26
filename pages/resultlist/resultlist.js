@@ -48,6 +48,8 @@ Page({
     }
     // (this.getNextDate(maxDay, this.data.list[i - 1].date)
     }else{
+        //等额本息
+
 
 
 
@@ -64,37 +66,8 @@ Page({
 
   },
 
-  // var year = date.getFullYear()
-  // var month = date.getMonth() + 1
-  // var day = date.getDate()
-  getNextDate: function (maxDay, lastDate) {
 
-    var dataArray = lastDate.split('-');
-    var dateInstance = new Date(dataArray[0], Number.parseInt(dataArray[1]), 0);
 
-    console.log(dateInstance.getFullYear() + '  ' + dateInstance.getMonth() + '   ');
-
-    var newDateInstance = new Date(dateInstance.getFullYear(), dateInstance.getMonth(), 0);
-
-    var resultDay = (Number.parseInt(maxDay) > dateInstance.getDate()) ? newDateInstance.getDate() : maxDay;
-
-    console.log('max ' + maxDay + '   '+dateInstance.getDate() + '   ' + newDateInstance.getDate() );
-    console.log('last '+dateInstance.getMonth());
-    console.log('new ' + newDateInstance.getMonth());
-
-    return dateInstance.getFullYear() + '-' +( Number.parseInt(dateInstance.getMonth())+1)+ '-' + resultDay;
-  },
-
-  getLastDay: function (year, month) {
-    var new_year = year;    //取当前的年份          
-    var new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）          
-    if (month > 12) {
-      new_month -= 12;        //月份减          
-      new_year++;            //年份增          
-    }
-    var new_date = new Date(new_year, new_month, 1);                //取当年当月中的第一天          
-    return (new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();//获取当月最后一天日期          
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
