@@ -3,11 +3,11 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     //投资金额
-    principal: '',
+    principal: '1000',
     // 利率
-    interest: '',
+    interest: '10',
     //期限
-    timeLimit: "",
+    timeLimit: "12",
     year: true,
     month: true,
     mode: 0,
@@ -20,6 +20,7 @@ Page({
     investmentDeduction: '',
     //管理费
     administrativeFee: '',
+
     result: {
       //本金
       principal: '',
@@ -35,6 +36,7 @@ Page({
       date: '',
       //总收益
       totalEarning:'',
+      mode:0,
 
     }
   },
@@ -111,6 +113,7 @@ Page({
           title: '信息填写不完整',
         });
       } else {
+        this.data.result.mode = this.data.mode;
         //本金    
         this.data.result.principal = Number.parseFloat(this.data.principal) ? Number.parseFloat(this.data.principal) : 10000;
         // 期数
@@ -118,7 +121,7 @@ Page({
 
         //到期时间
         var intervalDays = this.getIntervalDays();
-        this.data.result.date = util.compareDate(this.data.date, intervalDays);
+        this.data.result.date = this.data.date;
 
         //奖励
         this.data.result.investment =( Number.parseFloat(this.data.investment) ? Number.parseFloat(this.data.investment) : 0)
@@ -133,7 +136,10 @@ Page({
 
         console.log(this.data.result);
 
-        this.data.result.totalEarning =Number.parseFloat( this.data.result.investment )+ Number.parseFloat(this.data.result.interest);
+        this.data.result.totalEarning =(Number.parseFloat( this.data.result.investment )
+            + Number.parseFloat(this.data.result.interest)).toFixed(2);
+
+
 
         var result =""; 
         for (var key in this.data.result){
@@ -162,22 +168,30 @@ Page({
     console.log(intervalDays);
     console.log(dayPrincipal);
  
-    var realInterest = Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01*Number.parseFloat(this.data.administrativeFee)):1.0;
+    var realInterest = (Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01*Number.parseFloat(this.data.administrativeFee)):1.0)
+    var totalMoney =   this.data.result.principal  +( Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0);
 
-    return (intervalDays * dayPrincipal * this.data.result.principal * realInterest).toFixed(2);
+    return (intervalDays * dayPrincipal * totalMoney* realInterest).toFixed(2);
   },
 
   getYearInterest: function () {
     // 总奖励
     var investment = this.data.result.investment;
+    console.log(' ---->> invertment: '+investment);
     // 总利息
     var interest = this.getInterest() ;
-
+    console.log(' ---->> interest: ' + interest);
    // 真实本金   
-    var realPrincipal= (this.data.result.principal - (Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0));
-    console.log((investment + interest) * 365 / this.getIntervalDays() /realPrincipal);
-    return ((investment + interest) * 365 / this.getIntervalDays())/realPrincipal;
+    var realPrincipal= (this.data.result.principal);
+    console.log( ' real '+investment + '   '+interest);
+
+    return ((Number.parseFloat(investment) + Number.parseFloat(interest)) * 365 / this.getIntervalDays())/realPrincipal;
   },
+
+
+
+
+
 
   getIntervalDays :function(){
    return Number.parseFloat(this.data.timeLimit) ? (Number.parseFloat(this.data.timeLimit) * (this.data.month * 29.416666667 + 1)) : 365;

@@ -9,7 +9,7 @@
   <view class="item_container">
     <view style="color:#808080; margin-left:10pt; flex:1; ">起息时间</view>
     <view class="time_picker" style="margin-left:20pt;margin-right:40rpx">
-      <picker mode="date" value="{{date}}" start="2017-05-26" id="date" end="2018-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2017-05-26" id="date" end="2028-09-01" bindchange="bindDateChange">
         <view class="picker">{{date}}</view>
       </picker>
     </view>

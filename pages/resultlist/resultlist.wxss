@@ -28,3 +28,22 @@
   align-content: center;
 }
 
+.list_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+}
+.list_item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: flex-nowrap;
+  background: #f7f7f7;
+  width:100%;
+}
+

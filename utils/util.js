@@ -43,6 +43,8 @@ function compareDate(start, intervalDays) {
   return formatTime2(resultDate);
 } 
 
+
+
 module.exports = {
   formatTime: formatTime,
   formatTime2:formatTime2,

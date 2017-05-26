@@ -2,9 +2,12 @@
   "pages": [
     
     "pages/calculator/calculator",
+
+    "pages/resultlist/resultlist",
+    
+
     "pages/index/index",
     "pages/logs/logs",
-    "pages/resultlist/resultlist",
     "pages/test/test"
   ],
   "window": {
