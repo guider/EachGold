@@ -35,30 +35,23 @@ Page({
     // util.compareDate(this.data.date, intervalDays)
 
    var dateArr=  this.data.date.split('-');
-  //  this.setData({
-  //     date:dateArr[0]+'-'+(Number.parseInt(dateArr[1])-1)+'-'+dateArr[2]
-  //  });
-
 
     var maxDay = this.data.date.split('-')[2];
-
-    if(count<2){
-    var count = (this.data.mode)?this.data.timeLimit:1;
-
+    if(this.data.mode<2){
+        var count = (Number.parseInt(this.data.mode))?this.data.timeLimit:1;
     for (var i = 0; i < count; i++) {
       this.data.list[i] = {
         principal: (this.data.principal / count + ((i == count) ? this.data.principal % count : 0)).toFixed(2),
         interest: (this.data.interest / count + ((i == count) ? this.data.interest % count : 0)).toFixed(2),
-        //  date: (i == 0) ? this.data.date : (this.getNextDate(maxDay, this.data.list[i - 1].date)),
+         date: (i == 0) ? this.data.date :"1111",
       }
     }
-
+    // (this.getNextDate(maxDay, this.data.list[i - 1].date)
     }else{
 
 
 
 
-      return;
 
 
 
@@ -149,5 +142,33 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+
+  getNextMonth: function(date) {  
+    var arr = date.split('-');  
+    var year = arr[0]; //获取当前日期的年份  
+    var month = arr[1]; //获取当前日期的月份  
+    var day = arr[2]; //获取当前日期的日  
+    var days = new Date(year, month, 0);  
+    days = days.getDate(); //获取当前日期中的月的天数  
+    var year2 = year;  
+    var month2 = parseInt(month) + 1;  
+    if(month2 == 13) {
+      year2 = parseInt(year2) + 1;
+      month2 = 1;
+    }  
+   var day2 = day;  
+    var days2 = new Date(year2, month2, 0);  
+    days2 = days2.getDate();  
+    if(day2 > days2) {
+      day2 = days2;
+    }  
+            if (month2 < 10) {
+      month2 = '0' + month2;
+    }  
+          
+            var t2 = year2 + '-' + month2 + '-' + day2;  
+    return t2;  
   }
 })

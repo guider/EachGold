@@ -25,7 +25,8 @@
       <text>到期时间:{{date}}</text>
     </view>
   </view>
-  <view class="item_container" style="margin-top:20rpx;">
+
+   <view class="item_container" style="margin-top:20rpx;">
     <view class="item_title" style="margin-left:20rpx;  padding:15rpx; ">
       <text>期数</text>
     </view>
@@ -54,8 +55,7 @@
       <view class="item_title" style="margin-right: 20rpx;padding:15rpx; flex:3;">
         <text>{{list[index].date}}</text>
       </view>
-
     </view>
-
   </view>
+
 </view>
