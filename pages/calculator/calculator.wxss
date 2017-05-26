@@ -1,10 +1,10 @@
-
-page{
-  background-color:#f4f4f4;
+page {
+  background-color: #f4f4f4;
 }
+
 .container {
   height: 100%;
-  width:100%;
+  width: 100%;
   display: flex;
   padding: 10rpx 0;
   flex-direction: column;
@@ -13,13 +13,13 @@ page{
 .item_container {
   flex-direction: row;
   width: 100%;
-  height:30pt;
+  height: 30pt;
   background: white;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   border-bottom: 1px solid #d8d8d8;
-  }
+}
 
 .item_title {
   font-size: 12pt;
@@ -27,10 +27,9 @@ page{
   color: #808080;
   align-self: center;
   align-items: center;
-  
 }
 
-.input { 
+.input {
   flex: 1;
   align-self: center;
   margin-left: 30pt;
@@ -40,75 +39,78 @@ page{
   border-bottom: 1px solid #d8d8d8;
 }
 
-.unit_text{
+.unit_text {
   color: #004986;
   margin: 10pt;
   font-size: 12pt;
   align-self: center;
-  
-
 }
-.picker_title{
+
+.picker_title {
   font-size: 12pt;
   margin-left: 10pt;
   color: #808080;
   align-self: center;
   align-items: center;
-  
-
 }
 
-.arrow{
+.arrow {
   align-self: center;
-  width: 10pt; height: 14pt;
+  width: 10pt;
+  height: 14pt;
 }
 
-
-.time_picker{
-   background: white;
+.time_picker {
+  background: white;
 }
 
-.wx-checkbox-input{
-    display: none;
+.wx-checkbox-input {
+  display: none;
 }
 
-.switch{
-  height:48rpx;
+.switch {
+  height: 48rpx;
   width: 120rpx;
+  border-radius: 8rpx;
   margin-left: 30rpx;
+  border: 1px solid #004986;
   margin-right: 30rpx;
   background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571163728749.png");
-
 }
-.switch[checked]{
-  height:48rpx;
+
+.switch[checked] {
+  height: 48rpx;
+  border: 1px solid #004986;
+  border-radius: 8rpx;
   width: 120rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
   background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571167092431.png");
-
 }
 
-.switch_month{
-  height:48rpx;
+.switch_month {
+  border: 1px solid #004986;
+  height: 48rpx;
+  border-radius: 8rpx;
   width: 120rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
   background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571175631818.png");
-
 }
-.switch_month[checked]{
-  
-  height:48rpx;
+
+.switch_month[checked] {
+  border: 1px solid #004986;
+  height: 48rpx;
+  border-radius: 8rpx;
   width: 120rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
   background-image: url("http://o7lzjfyxl.bkt.clouddn.com/20170525149571169986512.png");
-
 }
-.bottom_container{
-    position: fixed;
-    bottom: 0;
-    width: 90%;
-    margin-bottom: 20rpx;
+
+.bottom_container {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  margin-bottom: 20rpx;
 }

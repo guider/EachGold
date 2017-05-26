@@ -33,6 +33,8 @@ Page({
       timeLimit: '',
       //到期时间
       date: '',
+      //总收益
+      totalEarning:'',
 
     }
   },
@@ -127,9 +129,21 @@ Page({
         this.data.result.interest = this.getInterest();
 
         // 年化率 
-        this.data.result.year_interest = this.getYearInterest();
+        this.data.result.year_interest =( this.getYearInterest()*100).toFixed(2);
 
         console.log(this.data.result);
+
+        this.data.result.totalEarning =Number.parseFloat( this.data.result.investment )+ Number.parseFloat(this.data.result.interest);
+
+        var result =""; 
+        for (var key in this.data.result){
+            result  = result+key+'='+this.data.result[key]+'&';
+        }
+        
+
+        wx.navigateTo({
+          url: '../resultlist/resultlist?'+result,
+        });
 
 
       }
@@ -150,7 +164,7 @@ Page({
  
     var realInterest = Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01*Number.parseFloat(this.data.administrativeFee)):1.0;
 
-    return intervalDays * dayPrincipal * this.data.result.principal * realInterest ;
+    return (intervalDays * dayPrincipal * this.data.result.principal * realInterest).toFixed(2);
   },
 
   getYearInterest: function () {
