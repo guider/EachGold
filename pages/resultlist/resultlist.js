@@ -78,6 +78,7 @@ Page({
       }
 
     }
+    this.data.year_interest = this.data.realYearInterest;
     this.setData(this.data);
 
   },
