@@ -29,7 +29,7 @@
 }
 
 .list_container {
-  height: 100%;
+  height: 80rpx;
   width: 100%;
   display: flex;
   flex-direction: column;

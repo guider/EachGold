@@ -3,7 +3,7 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     //投资金额
-    principal: '1000',
+    principal: '10000',
     // 利率
     interest: '10',
     //期限
@@ -124,16 +124,17 @@ Page({
         this.data.result.interest = this.getInterest();
 
         // 年化率 
-        this.data.result.year_interest = (this.getYearInterest() * 100).toFixed(2);
+        this.data.result.year_interest = this.data.mode ==2?this.data.interest: (this.getYearInterest() * 100).toFixed(2);
 
 
         this.data.result.totalEarning = (Number.parseFloat(this.data.result.investment)
           + Number.parseFloat(this.data.result.interest)).toFixed(2);
 
-        var result = "";
         for (var key in this.data.result) {
           result = result + key + '=' + this.data.result[key] + '&';
         }
+         result += "intervalDays=" + this.getIntervalDays();
+        
         wx.navigateTo({
           url: '../resultlist/resultlist?' + result,
         });
@@ -149,10 +150,12 @@ Page({
       var dayPrincipal = 0.01 * (Number.parseFloat(this.data.interest) * 1.0 / ((this.data.year ? 365 : 30.4166666667) * 1.0));
       var monthPricipal = 30.4166666667 * dayPrincipal;
 
-      var tmpInterest =[ (this.data.principal * monthPricipal) * Math.pow((1 + monthPricipal), Number.parseFloat(this.data.timeLimit)) ]
+      var tmpInterest =[(this.data.principal * monthPricipal) * Math.pow((1 + monthPricipal), Number.parseFloat(this.data.timeLimit)) ]
           /[ Math.pow((1 + monthPricipal), Number.parseFloat(this.data.timeLimit))-1];
 
-     return tmpInterest.toFixed(2);
+
+      console.log((tmpInterest * Number.parseFloat(this.data.timeLimit)))
+      return ((tmpInterest * Number.parseFloat(this.data.timeLimit)) - this.data.principal).toFixed(2);
 
     } else {
 
