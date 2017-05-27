@@ -61,7 +61,7 @@ Page({
           date: this.getNextDate(maxDay, i == 0 ? this.data.date : tmplist[i - 1].date),
         }
       }
-      // (this.getNextDate(maxDay, this.data.list[i - 1].date)
+      this.data.endDate = this.data.list[this.data.list.length - 1].date;
     } else {
       //等额本息 
      var maxDay =  new Date(this.data.date).getDate();
@@ -75,10 +75,11 @@ Page({
           interest: (this.interest(this.data.principal, this.data.year_interest * 0.01, count, i + 1)),
           date: this.getNextDate(maxDay, i == 0 ? this.data.date : tmplist[i-1].date),
         }
-      }
 
+      }
+      this.data.endDate= this.data.list[this.data.list.length-1].date;
     }
-    this.data.year_interest = this.data.realYearInterest;
+
     this.setData(this.data);
 
   },

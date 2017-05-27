@@ -12,11 +12,11 @@ Page({
     month: true,
     mode: 0,
     array: ['一次性还本息', '按月付息到期还本', '等额本息'],
-    //投资奖励
+    //返现奖励
     investment: '',
     //抵扣奖励
     deduction: '',
-    // 投标奖励
+    // 投资奖励
     investmentDeduction: '',
     //管理费
     // administrativeFee: '',
@@ -128,8 +128,24 @@ Page({
           : (this.getYearInterest() * 100).toFixed(2);
 
         if (this.data.mode == 2) {
-          this.data.result.realYearInterest = (this.data.interest * 1.0 + 1.0 * this.data.investmentDeduction)*1.0
-            + (this.data.deduction * 1.0 + this.data.investment * 1.0)*100 / this.data.principal;
+          console.log('<>>>>>' + this.data.interest);
+          // 总奖励
+          var investment = this.data.result.investment;
+          // 总投资天数
+          var intervalDays = this.getIntervalDays();
+          // 日利率
+          var dayPrincipal = 0.01 * Number.parseFloat(this.data.interest) * 1.0 / (this.data.year ? 365 : 30.4166666667) * 1.0;
+
+          // var realInterest = (Number.parseFloat(this.data.administrativeFee) ? (1.0 - 0.01 * Number.parseFloat(this.data.administrativeFee)) : 1.0)
+          var totalMoney = this.data.result.principal + (Number.parseFloat(this.data.deduction) ? Number.parseFloat(this.data.deduction) : 0);
+          // 总利息
+
+          var interest = (intervalDays * dayPrincipal * totalMoney).toFixed(2);
+          // 真实本金   
+          var realPrincipal = (this.data.result.principal);
+
+          this.data.result.realYearInterest = ((((Number.parseFloat(investment) + Number.parseFloat(interest)) * 365 / this.getIntervalDays()) / realPrincipal) *100).toFixed(2);
+
         }
 
 
@@ -191,6 +207,8 @@ Page({
     var realPrincipal = (this.data.result.principal);
 
     return ((Number.parseFloat(investment) + Number.parseFloat(interest)) * 365 / this.getIntervalDays()) / realPrincipal;
+
+
   },
 
 
