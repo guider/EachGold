@@ -3,11 +3,11 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     //投资金额
-    principal: '10000',
+    principal: '',
     // 利率
-    interest: '10',
+    interest: '',
     //期限
-    timeLimit: "12",
+    timeLimit: "",
     year: true,
     month: true,
     mode: 0,
@@ -100,10 +100,18 @@ Page({
       });
     } else {
 
-      if (!this.data.principal || !this.data.interest || !this.data.timeLimit) {
+      if (!this.data.principal ){
         wx.showToast({
-          title: '信息填写不完整',
+          title: '实投金额未填写',
         });
+       }else if( !this.data.interest ){
+        wx.showToast({
+          title: '利率未填写',
+        });
+        }else if( !this.data.timeLimit) {
+          wx.showToast({
+            title: '期限未填写',
+          });
       } else {
         this.data.result.mode = this.data.mode;
         //本金    
@@ -128,7 +136,6 @@ Page({
           : (this.getYearInterest() * 100).toFixed(2);
 
         if (this.data.mode == 2) {
-          console.log('<>>>>>' + this.data.interest);
           // 总奖励
           var investment = this.data.result.investment;
           // 总投资天数

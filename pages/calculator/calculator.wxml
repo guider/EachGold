@@ -9,7 +9,7 @@
     <view class="item_container">
       <view style="color:#808080; margin-left:10pt; flex:1; ">起息时间</view>
       <view class="time_picker" style="margin-left:20pt;margin-right:40rpx">
-        <picker mode="date" value="{{date}}" start="2017-05-26" id="date" end="2028-09-01" bindchange="bindDateChange">
+        <picker mode="date" value="{{date}}" start="2014-01-01" id="date" end="2028-09-01" bindchange="bindDateChange">
           <view class="picker">{{date}}</view>
         </picker>
       </view>
@@ -40,7 +40,7 @@
     <view class="item_container">
       <view style="color:#808080; margin-left:10pt; flex:1; ">还款方式</view>
       <view class="time_picker" style="margin-left:20pt;margin-right:40rpx">
-        <picker range="{{array}}" start="2017-05-26" end="2030-01-01" id='mode' disabled="{{!year||!month}}" bindchange="bindDateChange">
+        <picker range="{{array}}" start="2016-01-01" end="2030-01-01" id='mode' disabled="{{!year||!month}}" bindchange="bindDateChange">
           <view class="picker">{{array[mode]}}</view>
         </picker>
       </view>
@@ -56,7 +56,7 @@
         <input class="input" id="investment" value="{{investment}}" bindinput="inputChange" type="digit" style="margin-left:0rpx;width:50pt;padding:4pt;margin-right:2pt;border:1px solid #d8d8d8" placeholder="选填" />
       </view>
     </view>
-    <view class="item_container" >
+    <view class="item_container">
 
       <view style="flex:1; ">
         <text style="color:#808080;  font-size:35rpx; margin-left:10pt;margin-right:20rpx; ">抵扣奖励</text>
@@ -90,8 +90,8 @@
   </view>
   <view class="bottom_container">
     <view class="item_container" style="background:transparent;  border:0px;">
-      <button id="reset" type="default" style="width:40%;" bindtap="onClick">重置</button>
-      <button id="confirm" type="primary" style="width:60%; margin-left:20rpx;" bindtap="onClick">确定</button>
+      <button id="reset" type="default"  style="width:40%;  margin-left:20rpx;" bindtap="onClick">重置</button>
+      <button id="confirm" type="primary" style="width:60%; margin-right:20rpx; margin-left:20rpx;" bindtap="onClick">确定</button>
     </view>
   </view>
 </view>
