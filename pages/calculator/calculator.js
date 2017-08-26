@@ -159,7 +159,7 @@ Page({
 
         this.data.result.totalEarning = (Number.parseFloat(this.data.result.investment)
           + Number.parseFloat(this.data.result.interest)).toFixed(2);
-
+        var result;
         for (var key in this.data.result) {
           result = result + key + '=' + this.data.result[key] + '&';
         }
